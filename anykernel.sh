@@ -25,7 +25,7 @@ ramdisk_compression=auto
 patch_vbmeta_flag=auto
 no_magisk_check=1
 
-。 "$AKHOME/tools/ak3-core.sh"
+. "$AKHOME/tools/ak3-core.sh"
 
 detect_key_press() {
     local prompt="$1" up_option="$2" down_option="$3"
@@ -151,6 +151,8 @@ apply_kpm_patch() {
         KPM_RETRIES=$((KPM_RETRIES + 1))
         ui_print "-----------------------------------------"
         ui_print "-> KPM 补丁尝试次数: $KPM_RETRIES / $MAX_RETRIES"
+        ui_print "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️"
+        ui_print "可能会异常重启1~2次"
         ui_print "没有需求不建议开启"
         
         detect_key_press "是否应用 KPM 补丁？" "启用补丁😄" "跳过补丁😆"
@@ -159,7 +161,7 @@ apply_kpm_patch() {
             1|2) SKIP_PATCH=1 ;;
         esac
 
-        IMG_SRC="$AKHOME/Image"
+        IMG_SRC="$AKHOME/Image/Image"
         PATCH_BIN="$AKHOME/patch_android"
 
         if [ "$SKIP_PATCH" -eq 0 ]; then
