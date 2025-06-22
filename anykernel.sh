@@ -161,7 +161,7 @@ apply_kpm_patch() {
             1|2) SKIP_PATCH=1 ;;
         esac
 
-        IMG_SRC="$AKHOME/Image/Image"
+        IMG_SRC="$AKHOME/Image"
         PATCH_BIN="$AKHOME/patch_android"
 
         if [ "$SKIP_PATCH" -eq 0 ]; then
